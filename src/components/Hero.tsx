@@ -10,11 +10,12 @@ export function Hero() {
     >
       <motion.h1
         initial={{ opacity: 0, y: 40 }}
-        animate={{ opacity: 1, y: 0 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true }}
         transition={{ duration: 0.8 }}
         className="text-5xl font-bold sm:text-6xl"
       >
-        Hi, I’m <span className="text-blue-500">Wenceslaus Wesile</span>
+        Hi, I’m <span className="text-blue-500">Wenceslaus Wesilei</span>
       </motion.h1>
 
       <motion.p
@@ -25,6 +26,17 @@ export function Hero() {
       >
         A passionate Front-End Developer crafting interactive and accessible web
         experiences.
+      </motion.p>
+
+      <motion.p
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ delay: 0.5, duration: 0.8 }}
+        className="mt-4 text-gray-300 text-base max-w-2xl"
+      >
+        I build amazing frontend websites using Next.js, mobile apps with React
+        Native, and robust backends with Django, Flask, and various databases.
+        Let's create something amazing together!
       </motion.p>
 
       <motion.div

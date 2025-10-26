@@ -1,29 +1,39 @@
 "use client";
 
-import { useTheme } from "next-themes";
 import { useEffect, useState } from "react";
 import { Moon, Sun } from "lucide-react";
-import { Button } from "@/components/ui/button";
 
 export function ThemeToggle() {
-  const { theme, setTheme } = useTheme();
-  const [mounted, setMounted] = useState(false);
+  const [theme, setTheme] = useState("light");
 
-  useEffect(() => setMounted(true), []);
-  if (!mounted) return null;
+  // Load theme from localStorage
+  useEffect(() => {
+    const savedTheme = localStorage.getItem("theme");
+    if (savedTheme) {
+      setTheme(savedTheme);
+      document.documentElement.classList.toggle("dark", savedTheme === "dark");
+    }
+  }, []);
+
+  // Toggle theme
+  const toggleTheme = () => {
+    const newTheme = theme === "light" ? "dark" : "light";
+    setTheme(newTheme);
+    document.documentElement.classList.toggle("dark", newTheme === "dark");
+    localStorage.setItem("theme", newTheme);
+  };
 
   return (
-    <Button
-      variant="ghost"
-      size="icon"
-      onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
-      className="rounded-full border border-gray-700"
+    <button
+      onClick={toggleTheme}
+      className="p-2 rounded-full border border-gray-400 hover:bg-gray-100 dark:hover:bg-gray-800 transition"
+      aria-label="Toggle dark mode"
     >
-      {theme === "dark" ? (
-        <Sun className="h-5 w-5 text-yellow-400" />
+      {theme === "light" ? (
+        <Moon className="w-5 h-5 text-gray-800" />
       ) : (
-        <Moon className="h-5 w-5 text-blue-500" />
+        <Sun className="w-5 h-5 text-yellow-400" />
       )}
-    </Button>
+    </button>
   );
 }
