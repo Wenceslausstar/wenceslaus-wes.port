@@ -1,12 +1,13 @@
 "use client";
+
 import { motion } from "framer-motion";
 import { Building } from "lucide-react";
 
 const experiences = [
   {
-    title: "Frontend Developer",
-    company: "Unikliniono",
-    period: "August 2024 - Present",
+    title: "Full Stack Developer",
+    company: "kidscodelabs kisumu",
+    period: "Dec 2024 - Present",
     description:
       "Developed responsive and interactive web applications using Next.js and React. Implemented modern UI/UX designs and optimized performance for better user experience.",
     tags: ["NextJS", "React", "TypeScript", "Tailwind CSS"],

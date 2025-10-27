@@ -138,7 +138,6 @@ const moreServices = [
 ];
 
 const allServices = [
-  // Existing services (web, mobile, backend) go here!
   {
     icon: ServiceIcon.web,
     title: "Web Development",
@@ -168,7 +167,6 @@ const allServices = [
       "Clerk",
     ],
   },
-  // New services from your screenshot
   ...moreServices,
 ];
 
@@ -213,8 +211,7 @@ export function Services() {
                 {svc.tags.map((tag) => (
                   <div
                     key={tag}
-                    className="inline-flex items-center rounded-full border px-2.5 py-0.5 text-xs font-semibold transition-colors 
-                    border-transparent bg-gray-800 text-gray-200 hover:bg-gray-700"
+                    className="inline-flex items-center rounded-full border px-2.5 py-0.5 text-xs font-semibold transition-colors border-transparent bg-gray-800 text-gray-200 hover:bg-gray-700"
                   >
                     {tag}
                   </div>
